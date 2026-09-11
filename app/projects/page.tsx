@@ -1,0 +1,5 @@
+import SiteLink from '../site-link';
+import type { Metadata } from 'next';
+import { Shell, ProjectCatalog } from '../portfolio-components';
+export const metadata:Metadata={title:'All projects | Miranda Murarik',description:'Projects and supporting tools across AI evaluation, automation, and data engineering.'};
+export default function AllProjects(){return <Shell active="/projects"><section className="category-intro"><SiteLink className="back-link" href="/">← Home</SiteLink><div className="eyebrow">Project collection</div><h1>All projects</h1><p>AI evaluations, recurring data pipelines, and the smaller tools that support the work. Related projects are labeled so you can see how they fit together.</p><nav className="catalog-nav" aria-label="Browse by category"><SiteLink href="/llm-evaluation">LLM evaluation ↗</SiteLink><SiteLink href="/automation">Automation ↗</SiteLink><SiteLink href="/data-engineering">Data engineering ↗</SiteLink><SiteLink href="/research">Research · Details to come ↗</SiteLink></nav></section><ProjectCatalog/></Shell>}
