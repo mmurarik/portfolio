@@ -15,7 +15,7 @@ export function Shell({children,active}: {children:ReactNode,active?:string}) {r
   <Motion/><SiteLink className="skip" href="#content">Skip to content</SiteLink>
   <header className="header"><SiteLink className="wordmark" href="/">miranda murarik<span>↗</span></SiteLink><nav aria-label="Main navigation"><SiteLink href="/projects" aria-current={active==='/projects'?'page':undefined}>All projects</SiteLink>{categories.map(c=><SiteLink key={c.href} href={c.href} aria-current={active===c.href?'page':undefined}>{c.title}</SiteLink>)}<SiteLink href="/#about">About</SiteLink><SiteLink className="nav-contact" href="mailto:mirandamurarik@gmail.com">Let’s talk <ArrowUpRight size={16}/></SiteLink></nav></header>
   <main id="content">{children}</main>
-  <footer><SiteLink href="/">Miranda Murarik</SiteLink><span>AI automation engineer</span><SiteLink href="#content">Back to top ↑</SiteLink></footer>
+  <footer><SiteLink href="/">Miranda Murarik</SiteLink><SiteLink href="https://github.com/mmurarik" target="_blank" rel="noreferrer">GitHub ↗</SiteLink><SiteLink href="#content">Back to top ↑</SiteLink></footer>
 </>}
 
 export function CategoryIntro({title,description}: {title:string,description:string}) {return <section className="category-intro"><SiteLink className="back-link" href="/projects">← All projects</SiteLink><div className="eyebrow">Project collection</div><h1>{title}</h1><p>{description}</p></section>}
