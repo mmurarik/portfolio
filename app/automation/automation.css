@@ -1,0 +1,31 @@
+.automation-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  padding-bottom: 64px;
+}
+.automation-card {
+  border: 1px solid #30394b;
+  background: #131925;
+  border-radius: 16px;
+  padding: 28px;
+  scroll-margin-top: 110px;
+  display: flex;
+  flex-direction: column;
+}
+.automation-card h2 { font-size: 1.5rem; line-height: 1.25; margin: 0 0 14px; }
+.automation-card p { line-height: 1.65; margin: 0 0 16px; }
+.automation-detail h3,
+.automation-stack h3 { font-size: .75rem; text-transform: uppercase; letter-spacing: .1em; margin: 0 0 12px; }
+.automation-detail h3 { color: #aebeff; margin-top: 18px; }
+.automation-detail h3:first-child { margin-top: 4px; }
+.automation-detail p { color: #c9d1df; }
+.automation-card .automation-context { font-size: .85rem; opacity: .75; }
+.automation-stack { margin-top: auto; padding-top: 16px; }
+.automation-stack ul { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
+.automation-stack li { border: 1px solid #465572; color: #cbd6ef; border-radius: 999px; padding: 5px 11px; font-size: .8rem; }
+.automation-link { margin-top: 20px; }
+@media (max-width: 700px) {
+  .automation-grid { grid-template-columns: 1fr; gap: 16px; }
+  .automation-card { padding: 22px; }
+}
