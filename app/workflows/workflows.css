@@ -1,0 +1,10 @@
+.workflow-map{margin:0;padding:26px;border:1px solid #39425a;border-radius:18px;background:radial-gradient(ellipse at 45% 0,#34447335,transparent 70%),#0d121c;min-width:0}
+.workflow-map figcaption{font-size:.78rem;letter-spacing:.09em;text-transform:uppercase;color:#b7c3e6;margin-bottom:24px}
+.workflow-stages{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;align-items:start}
+.workflow-stage{position:relative;min-width:0}.workflow-stage-label{display:flex;align-items:center;gap:9px;font-size:.82rem;font-weight:550;color:#c8d4ef;margin-bottom:14px}
+.workflow-stage ol{display:grid;gap:10px;list-style:none;margin:0;padding:0}.workflow-node{display:flex;flex-direction:column;gap:7px;padding:16px;border:1px solid #3d4961;border-radius:12px;background:#172032;min-width:0}
+.workflow-node strong{font-size:1rem;font-weight:550;line-height:1.4;color:#e2e8f7}.workflow-node p{font-size:.86rem;line-height:1.55;color:#aebbd2;margin:0}.workflow-kind{font-size:.65rem;letter-spacing:.07em;text-transform:uppercase;color:#95a8d7}
+.workflow-stage-1 .workflow-node{border-color:#5b5680;background:#211e35}.workflow-stage-1 .workflow-kind{color:#c0b2ed}.workflow-stage-2 .workflow-node{border-color:#385957;background:#142527}.workflow-stage-2 .workflow-kind{color:#95c9bf}
+.workflow-connector{position:absolute;right:-31px;top:72px;color:#8194c1}.workflow-note{display:flex;align-items:start;gap:10px;border-top:1px solid #303b51;margin-top:22px;padding-top:18px;color:#a9b9df}.workflow-note svg{margin-top:3px}.workflow-note p{font-size:.83rem;line-height:1.6;margin:0;color:#b3bfd4}
+.category-projects .project>.workflow-map{grid-column:1/-1;margin:0 24px 24px}.evaluation-workflow{margin-top:26px}
+@media(max-width:650px){.workflow-map{padding:19px}.workflow-stages{grid-template-columns:1fr;gap:38px}.workflow-connector{top:auto;bottom:-30px;right:calc(50% - 11px);transform:rotate(90deg)}.workflow-node{padding:15px}.category-projects .project>.workflow-map{margin:0 16px 16px}}

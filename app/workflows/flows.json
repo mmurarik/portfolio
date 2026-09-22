@@ -1,0 +1,438 @@
+{
+  "evaluation": {
+    "inputs": [
+      {
+        "name": "ClickUp API",
+        "detail": "Application attachments and award category",
+        "kind": "API"
+      },
+      {
+        "name": "Application documents",
+        "detail": "Text and rendered page images",
+        "kind": "Files"
+      }
+    ],
+    "process": [
+      {
+        "name": "Python",
+        "detail": "Ingest and check application content",
+        "kind": "Code"
+      },
+      {
+        "name": "OpenAI API",
+        "detail": "Judge panel produces scores and feedback",
+        "kind": "AI"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "Reviewer briefs",
+        "detail": "Evidence and scores for review",
+        "kind": "Documents"
+      },
+      {
+        "name": "Personalized feedback",
+        "detail": "Applicant reports and winner case studies",
+        "kind": "Documents"
+      }
+    ],
+    "note": "People review the evidence and make the final award decisions. Human scores and referee models are used in the separate validation study."
+  },
+  "polls": {
+    "inputs": [
+      {
+        "name": "ClickUp",
+        "detail": "Task ID and poll brief",
+        "kind": "API"
+      },
+      {
+        "name": "Approved questions",
+        "detail": "Question set and poll details",
+        "kind": "Input"
+      }
+    ],
+    "process": [
+      {
+        "name": "Claude Code skill",
+        "detail": "Confirm inputs and request approvals",
+        "kind": "AI"
+      },
+      {
+        "name": "Python pipeline",
+        "detail": "Validate the specification and execute API changes",
+        "kind": "Code"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "Google Sheets",
+        "detail": "Tracking workbook",
+        "kind": "API"
+      },
+      {
+        "name": "Alchemer",
+        "detail": "Built survey",
+        "kind": "API"
+      },
+      {
+        "name": "Contentful",
+        "detail": "Poll listing draft",
+        "kind": "API"
+      },
+      {
+        "name": "ClickUp",
+        "detail": "Project task and tracking links",
+        "kind": "API"
+      }
+    ],
+    "note": "The operator approves checkpoints before the pipeline proceeds. New Contentful entries remain drafts for review."
+  },
+  "data": {
+    "inputs": [
+      {
+        "name": "Benchmark CSV exports",
+        "detail": "Tall and wide response tables",
+        "kind": "Files"
+      },
+      {
+        "name": "Practice configuration",
+        "detail": "Validation rules and instrument settings",
+        "kind": "Config"
+      }
+    ],
+    "process": [
+      {
+        "name": "Python · pandas",
+        "detail": "Check outliers, zeros, and missing values",
+        "kind": "Code"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "Excel workbooks",
+        "detail": "Flagged values and review decisions by practice",
+        "kind": "Files"
+      }
+    ],
+    "note": "Analysts decide whether to keep, remove, or correct each flagged value. This validation step leaves source files unchanged."
+  },
+  "instrument-browser": {
+    "inputs": [
+      {
+        "name": "Contentful Delivery API",
+        "detail": "Published instruments, modules, and questions",
+        "kind": "Read-only API"
+      },
+      {
+        "name": "Analyst request",
+        "detail": "Practice, question type, or module selection",
+        "kind": "Input"
+      }
+    ],
+    "process": [
+      {
+        "name": "Python",
+        "detail": "Traverse instruments and filter questions",
+        "kind": "Code"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "Excel",
+        "detail": "Selected instrument content, organized by module",
+        "kind": "File"
+      }
+    ],
+    "note": "The client is read-only: browsing and export cannot change the published content."
+  },
+  "instrument-loader": {
+    "inputs": [
+      {
+        "name": "Excel",
+        "detail": "Question, practice, and metric definitions",
+        "kind": "File"
+      }
+    ],
+    "process": [
+      {
+        "name": "Python",
+        "detail": "Read rows and create update payloads",
+        "kind": "Code"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "Contentful API",
+        "detail": "Created or updated instrument definitions",
+        "kind": "Write API"
+      },
+      {
+        "name": "Row-level log",
+        "detail": "Success or failure for each input row",
+        "kind": "File"
+      }
+    ],
+    "note": "This is a write-enabled tool. The result log records which rows succeeded or failed."
+  },
+  "survey-publishing": {
+    "inputs": [
+      {
+        "name": "Alchemer export",
+        "detail": "Completed survey results",
+        "kind": "File"
+      }
+    ],
+    "process": [
+      {
+        "name": "Alteryx",
+        "detail": "Filter and transform results",
+        "kind": "Workflow"
+      },
+      {
+        "name": "OpenAI API",
+        "detail": "Draft chart captions and an executive summary",
+        "kind": "AI"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "Contentful API",
+        "detail": "Research-report entries and generated text",
+        "kind": "Drafts"
+      }
+    ],
+    "note": "The analyst reviews the drafts and controls publication."
+  },
+  "publishing": {
+    "inputs": [
+      {
+        "name": "Cvent API",
+        "detail": "Conference sessions and speaker information",
+        "kind": "API"
+      },
+      {
+        "name": "Contentful records",
+        "detail": "Existing authors and archived session matches",
+        "kind": "Reference"
+      }
+    ],
+    "process": [
+      {
+        "name": "Python sync",
+        "detail": "Filter sessions, match authors, and prepare updates",
+        "kind": "Code"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "Contentful API",
+        "detail": "Conference-session drafts",
+        "kind": "Drafts"
+      }
+    ],
+    "note": "Author matches are checked before production writes. The sync preserves fields maintained by the content team."
+  },
+  "speaker-intake": {
+    "inputs": [
+      {
+        "name": "Alchemer",
+        "detail": "Speaker application responses",
+        "kind": "Survey data"
+      }
+    ],
+    "process": [
+      {
+        "name": "Python",
+        "detail": "Clean responses and map answers to task fields",
+        "kind": "Code"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "ClickUp API",
+        "detail": "Speaker application tasks and custom fields",
+        "kind": "API"
+      }
+    ],
+    "note": "The conference team manages the resulting applications in ClickUp."
+  },
+  "indices": {
+    "inputs": [
+      {
+        "name": "Financial Modeling Prep API",
+        "detail": "Financial statement data",
+        "kind": "API"
+      }
+    ],
+    "process": [
+      {
+        "name": "Alteryx",
+        "detail": "Transform data for the recurring index refresh",
+        "kind": "Workflow"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "BigQuery",
+        "detail": "Financial index data tables",
+        "kind": "Warehouse"
+      },
+      {
+        "name": "Tableau",
+        "detail": "Dashboards and outlier review from the warehouse",
+        "kind": "Reporting"
+      }
+    ],
+    "note": "The pipeline owner reviews data quality and outliers during the quarterly refresh."
+  },
+  "handoff": {
+    "inputs": [
+      {
+        "name": "Process knowledge",
+        "detail": "Rules, credentials boundaries, and decisions",
+        "kind": "Input"
+      },
+      {
+        "name": "Project files",
+        "detail": "Configuration, tests, and runbooks",
+        "kind": "Files"
+      }
+    ],
+    "process": [
+      {
+        "name": "Claude Code skills",
+        "detail": "Encode how to operate each workflow",
+        "kind": "AI instructions"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "Versioned project repository",
+        "detail": "Reusable skills, YAML, and documentation in GitHub",
+        "kind": "Handoff"
+      },
+      {
+        "name": "Operator workflow",
+        "detail": "Instructions for running, reviewing, and recovering",
+        "kind": "Handoff"
+      }
+    ],
+    "note": "This is the operating framework used across projects. Each workflow documents where human approval is required."
+  },
+  "survey-styling": {
+    "inputs": [
+      {
+        "name": "Alchemer survey",
+        "detail": "Page markup and stylesheet loading order",
+        "kind": "Web page"
+      },
+      {
+        "name": "Brand template",
+        "detail": "Required appearance and styles",
+        "kind": "Input"
+      }
+    ],
+    "process": [
+      {
+        "name": "Chrome DevTools",
+        "detail": "Inspect where styles are overridden",
+        "kind": "Inspection"
+      },
+      {
+        "name": "Claude Code skill",
+        "detail": "Apply the tested platform-specific CSS rules",
+        "kind": "AI instructions"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "Alchemer",
+        "detail": "Branded survey styling",
+        "kind": "CSS"
+      },
+      {
+        "name": "Reusable skill",
+        "detail": "Platform rules for future surveys",
+        "kind": "Handoff"
+      }
+    ],
+    "note": "This is a CSS and platform-behavior workflow, rather than an API data sync."
+  },
+  "clickup-fields": {
+    "inputs": [
+      {
+        "name": "ClickUp list schema",
+        "detail": "Source fields and target list configuration",
+        "kind": "API"
+      }
+    ],
+    "process": [
+      {
+        "name": "Python",
+        "detail": "Create, copy, or update custom-field schemas",
+        "kind": "Code"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "ClickUp API",
+        "detail": "Consistent custom fields across lists",
+        "kind": "Write API"
+      }
+    ],
+    "note": "The field structures support intake workflows, including the related Alchemer response sync."
+  },
+  "meeting-tasks": {
+    "inputs": [
+      {
+        "name": "Meeting notes",
+        "detail": "Follow-up actions and task details",
+        "kind": "Text"
+      }
+    ],
+    "process": [
+      {
+        "name": "Claude Code skill",
+        "detail": "Identify tasks and ask for missing information",
+        "kind": "AI"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "ClickUp",
+        "detail": "Structured follow-up tasks",
+        "kind": "Tasks"
+      }
+    ],
+    "note": "The conversation supplies missing details before tasks are created."
+  },
+  "poll-reporting": {
+    "inputs": [
+      {
+        "name": "Completed poll results",
+        "detail": "Data from the closed poll",
+        "kind": "Input"
+      }
+    ],
+    "process": [
+      {
+        "name": "Claude Code skills",
+        "detail": "Guide report and dashboard preparation",
+        "kind": "AI instructions"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "Poll reports",
+        "detail": "Prepared results for reporting",
+        "kind": "Output"
+      },
+      {
+        "name": "Survey dashboards",
+        "detail": "Prepared dashboard material",
+        "kind": "Output"
+      }
+    ],
+    "note": "These reusable skills support the reporting stage of the survey lifecycle."
+  }
+}

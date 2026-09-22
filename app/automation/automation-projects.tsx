@@ -1,4 +1,5 @@
 import SiteLink from '../site-link';
+import ProjectWorkflow from '../workflows/project-workflow';
 
 const method = [
   { title: 'Find the work', description: 'I looked for recurring processes where analysts were moving the same information between systems, repeating checks, or rebuilding the same output by hand.' },
@@ -143,6 +144,7 @@ export default function AutomationInitiative() {
         <div className="project-number">{String(index + 1).padStart(2, '0')}</div>
         <div className="eyebrow">{project.area}</div>
         <h3>{project.title}</h3>
+        <ProjectWorkflow id={project.id}/>
         <div className="evidence-detail">
           <h4>Problem</h4><p>{project.problem}</p>
           <h4>What I built</h4><p>{project.build}</p>

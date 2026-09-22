@@ -3,6 +3,7 @@ import { ArrowUpRight, ArrowRight } from 'lucide-react';
 import type { ReactNode } from 'react';
 import Motion from './motion';
 import { projects } from './projects';
+import ProjectWorkflow from './workflows/project-workflow';
 
 export const categories = [
   {href:'/llm-evaluation', title:'LLM evaluation', short:'LLM eval', description:'Evaluation systems that compare model behavior with human judgment and test whether the evaluation itself is trustworthy.', project:'AI judging panel', tags:'Evaluation · Study design'},
@@ -22,7 +23,7 @@ export function CategoryIntro({title,description}: {title:string,description:str
 
 export function OtherWork({current}: {current:string}) {return <nav className="other-work" aria-label="More project categories"><span>More work</span>{categories.filter(c=>c.href!==current).map(c=><SiteLink key={c.href} href={c.href}>{c.title}<ArrowUpRight size={17}/></SiteLink>)}</nav>}
 
-export function ProjectList({ids}: {ids:string[]}) {return <div className="category-projects">{ids.map(id=>{const p=projects.find(p=>p.id===id)!;return <article className={`project reveal${p.diagram?'':' project-text'}`} id={p.id} key={p.id}>{p.diagram&&<div className="project-visual"><Diagram kind={p.diagram}/><div className="project-metric"><strong className={p.id==='indices'?'word-metric':undefined}>{p.metric}</strong><span>{p.unit}</span></div></div>}<div className="project-copy"><div className="eyebrow">{p.label}</div><h2>{p.title}</h2>{p.related&&<span className="project-related">{p.related}</span>}<p>{p.description}</p>{p.result&&<p className="result">{p.result}</p>}{p.decision&&<details><summary>How I approached it <span>+</span></summary><p>{p.decision}</p></details>}<div className="tools">{p.tools}</div></div></article>})}</div>}
+export function ProjectList({ids}: {ids:string[]}) {return <div className="category-projects">{ids.map(id=>{const p=projects.find(p=>p.id===id)!;return <article className={`project reveal${p.diagram?'':' project-text'}`} id={p.id} key={p.id}>{p.diagram&&<div className="project-visual"><Diagram kind={p.diagram}/><div className="project-metric"><strong className={p.id==='indices'?'word-metric':undefined}>{p.metric}</strong><span>{p.unit}</span></div></div>}<div className="project-copy"><div className="eyebrow">{p.label}</div><h2>{p.title}</h2>{p.related&&<span className="project-related">{p.related}</span>}<p>{p.description}</p>{p.result&&<p className="result">{p.result}</p>}{p.decision&&<details><summary>How I approached it <span>+</span></summary><p>{p.decision}</p></details>}<div className="tools">{p.tools}</div></div><ProjectWorkflow id={p.id}/></article>})}</div>}
 
 export function ProjectCatalog() {return <div className="catalog-grid">{projects.map(p=><SiteLink className="catalog-card reveal" key={p.id} href={p.href??`${p.category}#${p.id}`}><div className="eyebrow">{categories.find(c=>c.href===p.category)?.title}</div><h2>{p.title}</h2><p>{p.description}</p>{p.related&&<span className="project-related">{p.related}</span>}<span className="catalog-action">View project <ArrowUpRight size={18}/></span></SiteLink>)}</div>}
 

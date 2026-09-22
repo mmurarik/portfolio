@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Validate exported pages and same-site links/assets without a running app."""
 import os
+import json
 import re
 from html.parser import HTMLParser
 from pathlib import Path
@@ -71,6 +72,14 @@ def main():
     for project_id, category in entries:
         document = documents[ROOT / category.lstrip("/") / "index.html"]
         assert project_id in document.ids, f"Missing project on category page: {category}#{project_id}"
+    flows = json.loads((ROOT.parent / "app/workflows/flows.json").read_text())
+    assert set(flows) == {project_id for project_id, _ in entries}, "Every project needs a workflow map"
+    automation = documents[ROOT / "automation/index.html"]
+    for project_id, category in entries:
+        assert "workflow-" + project_id in automation.ids, f"Missing automation workflow: {project_id}"
+        if category != "/automation":
+            page = documents[ROOT / category.lstrip("/") / "index.html"]
+            assert "workflow-" + project_id in page.ids, f"Missing category workflow: {project_id}"
     evaluation = documents[ROOT / "llm-evaluation/index.html"]
     assert BASE + "/llm-evaluation/ai-judging-panel" in evaluation.targets
     print(f"PASS: {len(ROUTES)} routes, custom 404, all project entries, and {checked} local links/assets (base path: {BASE or '/'}).")
