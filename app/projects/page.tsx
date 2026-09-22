@@ -1,5 +1,15 @@
-import SiteLink from '../site-link';
 import type { Metadata } from 'next';
-import { Shell, ProjectCatalog } from '../portfolio-components';
-export const metadata:Metadata={title:'All projects | Miranda Murarik',description:'Projects and supporting tools across AI evaluation, automation, and data engineering.'};
-export default function AllProjects(){return <Shell active="/projects"><section className="category-intro"><SiteLink className="back-link" href="/">← Home</SiteLink><div className="eyebrow">Project collection</div><h1>All projects</h1><p>AI evaluations, recurring data pipelines, and the smaller tools that support the work. Related projects are labeled so you can see how they fit together.</p><nav className="catalog-nav" aria-label="Browse by category"><SiteLink href="/llm-evaluation">LLM evaluation ↗</SiteLink><SiteLink href="/automation">Automation ↗</SiteLink><SiteLink href="/data-engineering">Data engineering ↗</SiteLink><SiteLink href="/research">Research · Details to come ↗</SiteLink></nav></section><ProjectCatalog/></Shell>}
+import { Shell, ProjectGroups, categories } from '../portfolio-components';
+import SiteLink from '../site-link';
+
+export const metadata:Metadata={title:'Projects | Miranda Murarik',description:'Projects across LLM evaluation, automation, data and analytics, and research.'};
+
+export default function AllProjects(){return <Shell active="/projects">
+  <section className="page-hero project-page-hero">
+    <div className="eyebrow">Projects</div>
+    <h1>Work organized by<br/>the problem it solves</h1>
+    <p>Each project explains the problem, what I built, and the decisions that made the system reliable enough to use.</p>
+    <nav className="project-jump" aria-label="Project categories">{categories.map((category,index)=><SiteLink key={category.href} href={`#${category.href.slice(1)}`}><span>{String(index+1).padStart(2,'0')}</span>{category.short}</SiteLink>)}</nav>
+  </section>
+  <ProjectGroups/>
+</Shell>}

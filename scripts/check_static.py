@@ -8,7 +8,7 @@ from urllib.parse import unquote, urljoin, urlsplit
 ROOT = Path(__file__).resolve().parents[1] / "out"
 BASE = os.environ.get("PAGES_BASE_PATH", "").rstrip("/")
 ORIGIN = "https://static-check.invalid"
-ROUTES = ("/", "/projects/", "/automation/", "/data-engineering/",
+ROUTES = ("/", "/projects/", "/skills/", "/resume/", "/automation/", "/data-engineering/",
           "/research/", "/llm-evaluation/", "/llm-evaluation/ai-judging-panel/")
 
 class Document(HTMLParser):
@@ -63,8 +63,8 @@ def main():
             checked += 1
     # Confirm the full review collection survived the framework conversion.
     catalog = documents[ROOT / "projects/index.html"]
-    project_links = [h for h in catalog.targets if "#" in h and not h.endswith(("#content", "#about"))]
-    assert len(project_links) == 14, "Expected supporting project links plus the AI case study"
+    project_links = [h for h in catalog.targets if h.startswith((BASE + "/automation#", BASE + "/data-engineering#"))]
+    assert len(project_links) == 13, "Expected all supporting project links after removing transcript collection"
     assert BASE + "/llm-evaluation/ai-judging-panel" in catalog.targets
     print(f"PASS: {len(ROUTES)} routes, custom 404, all project entries, and {checked} local links/assets (base path: {BASE or '/'}).")
 
