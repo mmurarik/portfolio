@@ -26,10 +26,10 @@ export function ProjectList({ids}: {ids:string[]}) {return <div className="categ
 
 export function ProjectCatalog() {return <div className="catalog-grid">{projects.map(p=><SiteLink className="catalog-card reveal" key={p.id} href={p.href??`${p.category}#${p.id}`}><div className="eyebrow">{categories.find(c=>c.href===p.category)?.title}</div><h2>{p.title}</h2><p>{p.description}</p>{p.related&&<span className="project-related">{p.related}</span>}<span className="catalog-action">View project <ArrowUpRight size={18}/></span></SiteLink>)}</div>}
 
-export function ProjectGroups() {return <div className="project-groups">{categories.map((category,index)=>{
+export function ProjectGroups() {return <div className="project-groups">{categories.map(category=>{
   const matches=projects.filter(project=>project.category===category.href);
   return <section className="project-group" id={category.href.slice(1)} key={category.href}>
-    <div className="project-group-intro"><span>{String(index+1).padStart(2,'0')}</span><div><h2>{category.title}</h2><p>{category.description}</p></div><SiteLink href={category.href}>Open collection <ArrowUpRight size={17}/></SiteLink></div>
+    <div className="project-group-intro"><div><h2>{category.title}</h2><p>{category.description}</p></div><SiteLink className="text-link" href={category.href}>Explore {category.short} <ArrowUpRight size={17}/></SiteLink></div>
     {matches.length>0?<div className="project-group-grid">{matches.map(project=><SiteLink className="project-index-card reveal" key={project.id} href={project.href??`${project.category}#${project.id}`}><div className="eyebrow">{project.label}</div><h3>{project.title}</h3><p>{project.description}</p><div className="project-index-meta">{project.tools}</div><span>View project <ArrowUpRight size={17}/></span></SiteLink>)}</div>:<SiteLink className="research-index-card reveal" href="/research"><div><span className="eyebrow">Research archive</span><h3>Graduate research and methods</h3><p>I’m organizing the original research materials before publishing individual project write-ups.</p></div><span>View research background <ArrowUpRight size={17}/></span></SiteLink>}
   </section>})}</div>}
 

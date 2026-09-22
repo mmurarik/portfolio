@@ -1,0 +1,98 @@
+{
+  "name": "Miranda Murarik",
+  "experience": [
+    {
+      "organization": "TSIA",
+      "dates": "Jun. 2021 – Present",
+      "roles": [
+        {
+          "title": "AI Automation Engineer",
+          "detail": "Feb. 2026 – Present",
+          "bullets": [
+            "Started TSIA's internal AI automation initiative across research and content operations, self-initiated and expanded to every process that fit, each built with the validation harnesses, reusable skills, and documentation the team needed to run it.",
+            "Designed and shipped the LLM judging system behind an industry awards program, scoring 131 submissions in the 2026 live cycle. Reason-then-rate architecture across three data-derived personas on hybrid text and rendered page images, with independent models from two other providers as referees.",
+            "Validated it against the human expert panel before it was trusted with decisions: matched the human winner in 7 of 7 categories across 29 held-out applications, with Impact reaching rho 0.71 against a human-to-human ceiling of 0.53. Established that ceiling first, diagnosing an apparent ICC of 0.14 to 0.24 as range restriction.",
+            "Cut judging effort from 330 human grading hours to 10 hours of human-in-the-loop review, a 97% reduction.",
+            "Replaced a 40-step manual poll checklist spanning five systems with a four-phase tool gated by four approvals, 1,246 lines across 16 Python modules. A first-time operator drove the second full cycle end to end with zero manual system edits, returning at least 32 hours a year per analyst.",
+            "Deployed under real governance constraints. The AI pair-programmer never saw member data, working from structure and aggregate diagnostics only, verified against synthetic fixtures under read-only credentials.",
+            "Won TSIA's company-wide AI Innovation and Enablement Award."
+          ]
+        },
+        {
+          "title": "Principal Research Analyst",
+          "detail": "Feb. 2025 – Feb. 2026",
+          "bullets": [
+            "Senior individual contributor for the research organization, owning solution design across the benchmark, survey, and conference programs.",
+            "Replaced roughly 8 near-duplicate validation scripts with a single config-driven engine covering all 8 research practices, where adding a practice became a configuration entry instead of new code.",
+            "Built the conference-to-CMS integration: 72 sessions filtered from 110 raw records, with author mapping validated against archived sessions at 58 of 61 exact, every mismatch explained, before any production write."
+          ]
+        },
+        {
+          "title": "Data Engineer",
+          "detail": "Mar. 2022 – Feb. 2025",
+          "bullets": [
+            "Led the migration of the firm's financial indices off manual vendor-workbook entry onto an API-driven Alteryx pipeline into BigQuery, with Tableau outlier detection. Owned the quarterly refresh from trainee to pipeline owner, 2022 through 2026."
+          ]
+        },
+        {
+          "title": "Data Analyst",
+          "detail": "Jun. 2021 – Feb. 2022",
+          "bullets": [
+            "Gathered requirements and mapped processes with stakeholders across teams. Delivered ad hoc statistical analysis, including a logistic regression on member renewal rates reported as non-significant (p = .128) rather than dressed up as a finding."
+          ]
+        }
+      ]
+    },
+    {
+      "organization": "Azusa Pacific University",
+      "dates": "Jun. 2018 – May 2021",
+      "roles": [
+        {
+          "title": "Data Analyst, Grant Research, Dept. of Psychology",
+          "detail": "Azusa, CA",
+          "bullets": [
+            "Ran point independently with senior stakeholders on five grant-funded projects across four partners: SAMHSA, the California Departments of Mental Health and Health Care Services, and the California Community Foundation. Designed evaluation instruments and advised teams on evaluation design and statistics."
+          ]
+        }
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Azusa Pacific University",
+      "degree": "M.S., Research Psychology & Data Analytics",
+      "location": "Azusa, CA"
+    },
+    {
+      "institution": "Azusa Pacific University",
+      "degree": "B.A., Psychology (Emphasis in Quantitative Sciences)",
+      "location": "Azusa, CA"
+    }
+  ],
+  "skills": [
+    {
+      "label": "Certifications",
+      "text": "Alteryx Designer Core; JMP/SAS Joint Certificate in Research Methods"
+    },
+    {
+      "label": "Data & Engineering",
+      "text": "Python; SQL; REST APIs; Alteryx; BigQuery; Tableau; Contentful; ClickUp; Alchemer; Salesforce; Claude Code; Codex; OpenAI, Google Gemini and Anthropic Claude APIs"
+    },
+    {
+      "label": "Research & Evaluation",
+      "text": "study and survey design; evaluation instruments; inter-rater reliability; human-baseline validation; regression and statistical analysis; adjudication and manipulation checks"
+    },
+    {
+      "label": "Statistics & Classical ML",
+      "text": "experimental design; regression and logistic regression; decision trees; model fitting and validation; nonparametric methods; reliability and agreement statistics"
+    },
+    {
+      "label": "AI Systems",
+      "text": "LLM pipeline design; agentic workflows and tool design; prompt and persona design; faithfulness auditing"
+    },
+    {
+      "label": "Delivery",
+      "text": "discovery, scoping and requirements; process mapping; data migration; change adoption and user enablement; stakeholder management; governance, privacy and security"
+    }
+  ]
+}
