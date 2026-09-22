@@ -1,30 +1,16 @@
 import SiteLink from './site-link';
 import { ArrowDown, ArrowUpRight } from 'lucide-react';
 import { Shell } from './portfolio-components';
-
 const destinations = [
   {number:'01',href:'/projects',title:'Projects',description:'The systems I built across LLM evaluation, automation, data and analytics, and research.',action:'Explore the work'},
   {number:'02',href:'/skills',title:'Skills',description:'The technical, research, and delivery capabilities I use to take a workflow from problem to handoff.',action:'See my skills'},
   {number:'03',href:'/resume',title:'Resume',description:'My experience, education, and current résumé in one place.',action:'View my resume'},
 ];
 
-export default function Portfolio(){return <Shell>
-  <section className="portfolio-hero">
-    <div className="hero-kicker"><span>AI SYSTEMS · EVALUATION · RESEARCH OPERATIONS</span><span>LOS ANGELES</span></div>
-    <h1>I build AI systems<br/>and test whether<br/><em>they deserve trust.</em></h1>
-    <div className="hero-brief"><p>I’m Miranda Murarik. I turn recurring research and content operations into systems that people can run, review, and maintain.</p><SiteLink href="#portfolio-index">Start here <ArrowDown size={18}/></SiteLink></div>
-  </section>
+export default function Portfolio() {return <Shell>
+<section className="hero"><div className="hero-field" aria-hidden="true"><div className="field-grid"/><div className="field-orbit orbit-a"/><div className="field-orbit orbit-b"/><span className="field-point point-a"/><span className="field-point point-b"/></div><div className="eyebrow"><span className="dot"/> AI AUTOMATION ENGINEER <span className="location">LOS ANGELES, CA</span></div><h1>Building AI<br/>and <em>testing it.</em></h1><div className="hero-bottom"><p>My work covers AI automation and data engineering. I also design the evaluations that help us decide when to trust those systems.</p><SiteLink className="text-link" href="#work">Explore my work <ArrowDown size={19}/></SiteLink></div><div className="disciplines"><span>LLM EVALUATION</span><span>AGENTIC WORKFLOWS</span><span>DATA SYSTEMS</span><span>HUMAN JUDGMENT</span></div></section>
 
-  <section className="portfolio-index" id="portfolio-index" aria-labelledby="portfolio-index-title">
-    <div className="index-heading"><span className="eyebrow">Portfolio index</span><h2 id="portfolio-index-title">Three ways to understand my work</h2></div>
-    <div className="destination-list">{destinations.map(item=><SiteLink className="destination-row reveal" href={item.href} key={item.href}><span className="destination-number">{item.number}</span><h3>{item.title}</h3><p>{item.description}</p><span className="destination-action">{item.action}<ArrowUpRight size={19}/></span></SiteLink>)}</div>
-  </section>
-
-  <section className="home-proof">
-    <div><span className="eyebrow">Current focus</span><h2>AI systems for work that already matters</h2></div>
-    <p>I work where engineering, analysis, and human judgment meet: awards evaluation, survey operations, benchmark data, and content publishing.</p>
-    <SiteLink href="/projects">Browse projects <ArrowUpRight size={18}/></SiteLink>
-  </section>
-
-  <section className="contact simple-contact"><span className="eyebrow">Contact</span><SiteLink href="mailto:mirandamurarik@gmail.com">mirandamurarik@gmail.com<ArrowUpRight/></SiteLink></section>
+<section id="work" className="work home-work"><div className="section-heading"><h2>Explore my portfolio</h2></div><div className="category-grid portfolio-destinations">{destinations.map(item=><SiteLink className="category-card reveal" href={item.href} key={item.href}><h3>{item.title}</h3><p>{item.description}</p><span className="category-action">{item.action}<ArrowUpRight size={18}/></span></SiteLink>)}</div></section>
+<section className="about reveal" id="about"><div className="about-intro"><span className="eyebrow">ABOUT MIRANDA</span><h2>From psychology<br/>to AI engineering</h2><img className="about-headshot" src={`${process.env.PAGES_BASE_PATH || ''}/headshot_mirandamurarik.jpeg`} alt="Miranda Murarik" width="800" height="800"/><div className="profile-links"><SiteLink className="text-link" href="https://www.linkedin.com/in/miranda-murarik/" target="_blank" rel="noreferrer">LinkedIn <ArrowUpRight size={18}/></SiteLink><SiteLink className="text-link" href="https://github.com/mmurarik" target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={18}/></SiteLink></div></div><div><p className="about-lead">I trained in research psychology and data analytics. Now I build AI and data systems for a technology-services research firm.</p><p>I started in analysis, then moved into data engineering and AI automation. My research training shapes how I check whether a system works and investigate its failures. It also informs where I keep a person involved in the decisions.</p><div className="education"><span>EDUCATION</span><p>MS, Research Psychology and Data Analytics<br/>BA, Psychology<br/><small>Azusa Pacific University</small></p></div></div></section>
+<section className="contact"><span className="eyebrow">GET IN TOUCH</span><SiteLink href="mailto:mirandamurarik@gmail.com">Let’s talk.<ArrowUpRight/></SiteLink><div><span>AI engineering · Research · Analytics · Product</span><SiteLink href="mailto:mirandamurarik@gmail.com">mirandamurarik@gmail.com</SiteLink></div></section>
 </Shell>}
