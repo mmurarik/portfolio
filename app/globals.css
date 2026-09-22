@@ -43,3 +43,6 @@ footer>div{display:flex;gap:26px}
 
 .project-collections{padding-bottom:70px}.project-collections h2{font-size:1.7rem;letter-spacing:-.04em;line-height:1.2;font-weight:500}
 @media(max-width:1100px){.project-collections h2{font-size:1.45rem}}
+
+.build-method{border:1px solid #39415b;border-radius:22px;background:linear-gradient(120deg,#171c29,#10131c);padding:34px;margin:0 0 32px}.build-method>.eyebrow{color:#aebeff}.build-method h2{font-size:1.9rem;line-height:1.25;font-weight:500;letter-spacing:-.04em;margin:16px 0}.build-method>p{color:#b2bdd1;max-width:950px;font-size:1rem}.build-method dl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin:28px 0}.build-method dl>div{border-top:1px solid #39415b;padding-top:20px}.build-method dt{color:#dbe2f5;font-size:1rem;font-weight:550;line-height:1.5}.build-method dd{margin:12px 0 0;color:#aeb9cf;line-height:1.65;font-size:.95rem}.build-method .build-method-role{padding-top:22px;border-top:1px solid #39415b;font-size:.9rem;color:#aeb9cf}
+@media(max-width:760px){.build-method{padding:25px}.build-method dl{grid-template-columns:1fr;gap:22px}.build-method h2{font-size:1.65rem}}
