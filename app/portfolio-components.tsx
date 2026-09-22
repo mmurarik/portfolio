@@ -7,7 +7,7 @@ import { projects } from './projects';
 export const categories = [
   {href:'/llm-evaluation', title:'LLM evaluation', short:'LLM eval', description:'Evaluation systems that compare model behavior with human judgment and test whether the evaluation itself is trustworthy.', project:'AI judging panel', tags:'Evaluation · Study design'},
   {href:'/automation', title:'Automation', short:'Automation', description:'AI-operated workflows that connect existing systems while leaving approvals and publication decisions with people.', project:'Survey production', tags:'Python · APIs · Human approvals'},
-  {href:'/data-engineering', title:'Data & analytics', short:'Data & analytics', description:'Data pipelines, validation systems, reporting workflows, and the checks that keep recurring work reliable.', project:'Benchmark validation', tags:'Data quality · ETL · Reporting'},
+  {href:'/data-engineering', title:'Data engineering', short:'Data engineering', description:'Data pipelines, validation systems, reporting workflows, and the checks that keep recurring work reliable.', project:'Benchmark validation', tags:'Data quality · ETL · Reporting'},
   {href:'/research', title:'Research', short:'Research', description:'Graduate psychology research, study design, statistics, and the research methods behind my technical work.', project:'Research background', tags:'Methods · Statistics · Human behavior'},
 ];
 

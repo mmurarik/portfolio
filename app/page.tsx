@@ -2,7 +2,7 @@ import SiteLink from './site-link';
 import { ArrowDown, ArrowUpRight } from 'lucide-react';
 import { Shell } from './portfolio-components';
 const destinations = [
-  {number:'01',href:'/projects',title:'Projects',description:'The systems I built across LLM evaluation, automation, data and analytics, and research.',action:'Explore the work'},
+  {number:'01',href:'/projects',title:'Projects',description:'The systems I built across LLM evaluation, automation, data engineering, and research.',action:'Explore the work'},
   {number:'02',href:'/skills',title:'Skills',description:'The technical, research, and delivery capabilities I use to take a workflow from problem to handoff.',action:'See my skills'},
   {number:'03',href:'/resume',title:'Resume',description:'My experience, education, and current résumé in one place.',action:'View my resume'},
 ];

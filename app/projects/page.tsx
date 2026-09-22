@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Shell, ProjectGroups, categories } from '../portfolio-components';
 import SiteLink from '../site-link';
 
-export const metadata:Metadata={title:'Projects | Miranda Murarik',description:'Projects across LLM evaluation, automation, data and analytics, and research.'};
+export const metadata:Metadata={title:'Projects | Miranda Murarik',description:'Projects across LLM evaluation, automation, data engineering, and research.'};
 
 export default function AllProjects(){return <Shell active="/projects">
   <section className="page-hero project-page-hero">
