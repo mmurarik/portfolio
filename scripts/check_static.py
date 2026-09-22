@@ -64,6 +64,11 @@ def main():
                 assert unquote(target.fragment) in documents[dest].ids, f"Missing anchor: {href}"
             checked += 1
     # Categories open separate pages; every existing project remains accessible there.
+    for file, document in documents.items():
+        if any(identifier.startswith("workflow-") for identifier in document.ids):
+            styles = [local_file(urlsplit(href).path).read_text()
+                      for href in document.targets if href.startswith(BASE + "/_next/") and href.endswith(".css")]
+            assert any(".workflow-map" in css and ".header" in css for css in styles), f"Diagram styles missing from core bundle: {file}"
     catalog = documents[ROOT / "projects/index.html"]
     for category in ("/llm-evaluation", "/automation", "/data-engineering", "/research"):
         assert BASE + category in catalog.targets, f"Missing category page link: {category}"

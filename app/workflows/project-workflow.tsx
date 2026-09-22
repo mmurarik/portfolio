@@ -1,6 +1,5 @@
 import { ArrowRight, FileInput, Workflow, FileOutput, ShieldCheck } from 'lucide-react';
 import flows from './flows.json';
-import './workflows.css';
 
 export default function ProjectWorkflow({id}: {id: string}) {
   const flow = flows[id as keyof typeof flows];
