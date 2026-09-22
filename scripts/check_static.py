@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Validate exported pages and same-site links/assets without a running app."""
 import os
+import re
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote, urljoin, urlsplit
@@ -61,11 +62,17 @@ def main():
                     documents[dest] = Document(dest)
                 assert unquote(target.fragment) in documents[dest].ids, f"Missing anchor: {href}"
             checked += 1
-    # Confirm the full review collection survived the framework conversion.
+    # Categories open separate pages; every existing project remains accessible there.
     catalog = documents[ROOT / "projects/index.html"]
-    project_links = [h for h in catalog.targets if h.startswith((BASE + "/automation#", BASE + "/data-engineering#"))]
-    assert len(project_links) == 13, "Expected all supporting project links after removing transcript collection"
-    assert BASE + "/llm-evaluation/ai-judging-panel" in catalog.targets
+    for category in ("/llm-evaluation", "/automation", "/data-engineering", "/research"):
+        assert BASE + category in catalog.targets, f"Missing category page link: {category}"
+    source = (ROOT.parent / "app/projects.ts").read_text()
+    entries = re.findall(r"\{id:'([^']+)', category:'([^']+)'", source)
+    for project_id, category in entries:
+        document = documents[ROOT / category.lstrip("/") / "index.html"]
+        assert project_id in document.ids, f"Missing project on category page: {category}#{project_id}"
+    evaluation = documents[ROOT / "llm-evaluation/index.html"]
+    assert BASE + "/llm-evaluation/ai-judging-panel" in evaluation.targets
     print(f"PASS: {len(ROUTES)} routes, custom 404, all project entries, and {checked} local links/assets (base path: {BASE or '/'}).")
 
 if __name__ == "__main__":
