@@ -25,7 +25,7 @@ export default function AllProjects(){return <Shell active="/projects">
   </section>
   <section className="category-grid project-collections" aria-label="Project collections">{categories.map(category=><SiteLink className="category-card reveal" href={category.href} id={category.href.slice(1)} key={category.href}>
     <h2>{category.title}</h2><p>{category.description}</p>
-    <div className="category-feature"><span>{category.href==='/research'?'Coming later':'Featured project'}</span><strong>{category.project}</strong><small>{category.tags}</small></div>
+    <div className="category-feature"><span>Featured work</span><strong>{category.project}</strong><small>{category.tags}</small></div>
     <span className="category-action">Explore {category.short}<ArrowUpRight size={18}/></span>
   </SiteLink>)}</section>
 </Shell>}

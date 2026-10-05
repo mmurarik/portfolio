@@ -78,9 +78,10 @@ def main():
         document = documents[ROOT / category.lstrip("/") / "index.html"]
         assert project_id in document.ids, f"Missing project on category page: {category}#{project_id}"
     flows = json.loads((ROOT.parent / "app/workflows/flows.json").read_text())
-    assert set(flows) == {project_id for project_id, _ in entries}, "Every project needs a workflow map"
+    workflow_entries = [(project_id, category) for project_id, category in entries if category != "/research"]
+    assert set(flows) == {project_id for project_id, _ in workflow_entries}, "Every systems project needs a workflow map"
     automation = documents[ROOT / "automation/index.html"]
-    for project_id, category in entries:
+    for project_id, category in workflow_entries:
         assert "workflow-" + project_id in automation.ids, f"Missing automation workflow: {project_id}"
         if category != "/automation":
             page = documents[ROOT / category.lstrip("/") / "index.html"]

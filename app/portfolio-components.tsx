@@ -9,7 +9,7 @@ export const categories = [
   {href:'/llm-evaluation', title:'LLM evaluation', short:'LLM eval', description:'Evaluation systems that compare model behavior with human judgment and test whether the evaluation itself is trustworthy.', project:'AI judging panel', tags:'Claude Code · Evaluation · Study design'},
   {href:'/automation', title:'Automation', short:'Automation', description:'AI-operated workflows that connect existing systems while leaving approvals and publication decisions with people.', project:'Survey production', tags:'Claude Code · Python · APIs · Human approvals'},
   {href:'/data-engineering', title:'Data engineering', short:'Data engineering', description:'Data pipelines, validation systems, reporting workflows, and the checks that keep recurring work reliable.', project:'Benchmark validation', tags:'Claude Code · Data quality · ETL · Reporting'},
-  {href:'/research', title:'Research', short:'Research', description:'Graduate psychology research, study design, statistics, and the research methods behind my technical work.', project:'Research background', tags:'Methods · Statistics · Human behavior'},
+  {href:'/research', title:'Research', short:'Research', description:'Grant evaluation, graduate and undergraduate research, psychophysiology, study design, and conference presentations.', project:'Grant evaluation and psychophysiology', tags:'Methods · Statistics · Program evaluation · Human behavior'},
 ];
 
 export function Shell({children,active}: {children:ReactNode,active?:string}) {return <>
@@ -31,7 +31,7 @@ export function ProjectGroups() {return <div className="project-groups">{categor
   const matches=projects.filter(project=>project.category===category.href);
   return <section className="project-group" id={category.href.slice(1)} key={category.href}>
     <div className="project-group-intro"><div><h2>{category.title}</h2><p>{category.description}</p></div><SiteLink className="text-link" href={category.href}>Explore {category.short} <ArrowUpRight size={17}/></SiteLink></div>
-    {matches.length>0?<div className="project-group-grid">{matches.map(project=><SiteLink className="project-index-card reveal" key={project.id} href={project.href??`${project.category}#${project.id}`}><div className="eyebrow">{project.label}</div><h3>{project.title}</h3><p>{project.description}</p><div className="project-index-meta">{project.tools}</div><span>View project <ArrowUpRight size={17}/></span></SiteLink>)}</div>:<SiteLink className="research-index-card reveal" href="/research"><div><span className="eyebrow">Research archive</span><h3>Graduate research and methods</h3><p>I’m organizing the original research materials before publishing individual project write-ups.</p></div><span>View research background <ArrowUpRight size={17}/></span></SiteLink>}
+    {matches.length>0?<div className="project-group-grid">{matches.map(project=><SiteLink className="project-index-card reveal" key={project.id} href={project.href??`${project.category}#${project.id}`}><div className="eyebrow">{project.label}</div><h3>{project.title}</h3><p>{project.description}</p><div className="project-index-meta">{project.tools}</div><span>View project <ArrowUpRight size={17}/></span></SiteLink>)}</div>:null}
   </section>})}</div>}
 
 export function Diagram({kind}: {kind:string}) {
