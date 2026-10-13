@@ -16,7 +16,7 @@ export function Shell({children,active}: {children:ReactNode,active?:string}) {r
   <Motion/><SiteLink className="skip" href="#content">Skip to content</SiteLink>
   <header className="header"><SiteLink className="wordmark" href="/">miranda murarik<span>↗</span></SiteLink><nav aria-label="Main navigation"><SiteLink href="/projects" aria-current={(active==='/projects'||categories.some(c=>c.href===active))?'page':undefined}>Projects</SiteLink><SiteLink href="/skills" aria-current={active==='/skills'?'page':undefined}>Skills</SiteLink><SiteLink href="/resume" aria-current={active==='/resume'?'page':undefined}>Resume</SiteLink><SiteLink className="nav-contact" href="mailto:mirandamurarik@gmail.com">Contact <ArrowUpRight size={16}/></SiteLink></nav></header>
   <main id="content">{children}</main>
-  <footer><SiteLink href="/">Miranda Murarik</SiteLink><div><SiteLink href="https://github.com/mmurarik" target="_blank" rel="noreferrer">GitHub ↗</SiteLink><SiteLink><SiteLink href="https://getsongbpm.com" target="_blank" rel="noreferrer">Music data by GetSongBPM ↗</SiteLink></div>
+  <footer><SiteLink href="/">Miranda Murarik</SiteLink><div><SiteLink href="https://github.com/mmurarik" target="_blank" rel="noreferrer">GitHub ↗</SiteLink><SiteLink><SiteLink href="https://getsongbpm.com" target="_blank" rel="noreferrer">Music data by GetSongBPM ↗</SiteLink></div><SiteLink href="#content">Back to top ↑</SiteLink></footer>
 
 export function CategoryIntro({title,description}: {title:string,description:string}) {return <section className="category-intro"><SiteLink className="back-link" href="/projects">← All projects</SiteLink><div className="eyebrow">Project collection</div><h1>{title}</h1><p>{description}</p></section>}
 
