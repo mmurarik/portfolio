@@ -1,6 +1,6 @@
 # Miranda Murarik — Portfolio
 
-Projects in AI evaluation, automation, and data engineering.
+Personal website hosting portfolio including projects in AI evaluation, automation, and data engineering.
 
 This is a static Next.js website. GitHub Pages serves the HTML, CSS, and browser
 JavaScript exported to `out/`; no application server is required.
